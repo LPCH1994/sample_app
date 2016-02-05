@@ -35,8 +35,6 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  end
-
   def edit
     @user = User.find(params[:id])
   end
@@ -85,4 +83,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name,:email,:password,
         :password_confirmation)
     end
+
+end
 

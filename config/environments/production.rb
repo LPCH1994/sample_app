@@ -27,8 +27,8 @@ Rails.application.configure do
   domain: "hi-sample-app.herokuapp.com",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: ENV["heroku2314@gmail.com"],
-  password: ENV["unlock123"]
+  user_name: ENV["GMAIL_USERNAME"],
+  password: ENV["GMAIL_PASSWORD"]
 }
 
 

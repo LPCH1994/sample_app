@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'login' => 'sessions#new'
   delete  'logout' => 'sessions#destroy'
   post  'login' => 'sessions#create'
@@ -12,7 +16,8 @@ Rails.application.routes.draw do
   get   'contact'=> 'static_pages#contact'
   get   'signup'=>'users#new'
   resources :users
-
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:edit,:new,:create,:update]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -15,7 +15,13 @@ Rails.application.routes.draw do
   get  'about' => 'static_pages#about'
   get   'contact'=> 'static_pages#contact'
   get   'signup'=>'users#new'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+  resources :relationships,       only: [:create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:edit,:new,:create,:update]
   resources :microposts, only: [:create,:destroy]
